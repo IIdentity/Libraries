@@ -9,13 +9,13 @@ function Http:encode(stuff)
     local stuff = stuff or {}
     HttpService:JSONEncode(stuff.Stuff)
 end
-function Http:lo(url)
+function Http:load(url)
     local url = url or {}
     loadstring(game:HttpGet(url.Url))()
 end
 function Http:request(url)
     local url = url or {}
-    http_request({
+    return http_request({
         Url = url.Url,
         Method = "GET"
     })
@@ -24,7 +24,7 @@ function Http:post(info)
     local info = info or {}
     local url = info.Url
     local headers = info.Headers
-    http_request({
+    return http_request({
         Url = url,
         Headers = headers,
         Method = "POST"
